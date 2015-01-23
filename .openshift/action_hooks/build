@@ -28,8 +28,21 @@ cat >$OPENSHIFT_HOMEDIR/.drush/drushrc.php <<EOF
 EOF
 
 #
+# If there is no current download of Drush, create one.
+#
+if [ ! -d "${OPENSHIFT_DATA_DIR}drush" ]
+then
+mkdir -p ${OPENSHIFT_TMP_DIR}drush
+cd ${OPENSHIFT_TMP_DIR}drush
+wget --quiet - http://ftp.drupal.org/files/projects/drush-7.x-5.9.tar.gz
+tar -zxf drush-7.x-5.9.tar.gz
+
+fi
+export PATH=${OPENSHIFT_DATA_DIR}drush/drush:$PATH
+#
 # If there is no current download of Drupal, create one.
 #
+
 if [ ! -d "${OPENSHIFT_DATA_DIR}downloads/current" ]
 then
   mkdir -p ${OPENSHIFT_TMP_DIR}drupal
