@@ -35,7 +35,7 @@ then
   echo "Download and install the latest stable version of Drush"
   mkdir -p ${OPENSHIFT_TMP_DIR}drush
   cd ${OPENSHIFT_TMP_DIR}drush
-  wget --quiet - http://ftp.drupal.org/files/projects/drush-7.x-5.9.tar.gz
+  wget --quiet http://ftp.drupal.org/files/projects/drush-7.x-5.9.tar.gz
   tar -zxf drush-7.x-5.9.tar.gz
   echo "Dig Download and install the latest stable version of Drush"
 
